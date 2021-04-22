@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 VUE</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+</head>
+<body>
+  <div id="app">
+    {{total}}
+
+
+    <button @click="incrimentar">Incrementar</button>
+
+    <p>{{instrumento}}</p>
+
+    <button @click="mudarNome('violao')">mudar nome</button>
+  </div>
+
+
+
+  <script>
+const vm = new Vue({
+  el:"#app",
+  data: {
+    total:0,
+    instrumento: ""
+  },
+    methods:{
+    incrimentar(){
+      this.total++,
+        this.testeMetodoDentroMetodo()
+    },
+    mudarNome(instrumento){
+      this.instrumento = instrumento
+    },
+
+      verEvento(event){
+        console.log(event)
+      },
+
+      testeMetodoDentroMetodo(){
+        console.log('teste ativado')
+      }
+  }
+})
+  </script>
+  
+</body>
+</html>
