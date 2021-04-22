@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudo VUE</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+</head>
+<body>
+  test
+  <div id="app">
+    <p>Mouses - R$ <span class="preco">{{preco}}</span></p>
+
+
+    <div v-if="comprou">
+
+      <button @click="total++">adicionar</button>
+      <button @click="total--">remover</button>
+      <span class="total">{{total}}</span>
+      <p>Total: <span class="precoTotal">{{preco * total}}</span></p>
+      <p>Em estoque: {{emEstoque ? 'Disponível' : 'Não temos mais no estoque'}}</p>
+
+      <a :href="comprou ? href:''">{{href}}</a>
+
+    <input v-model="cor" type="color">
+    {{cor}}
+    </div>
+  </div>
+
+
+
+  <script>
+const vm = new Vue({
+  el:"#app",
+  data: {
+    preco:126,
+    total:0,
+    emEstoque: false,
+    comprou: true,
+    href:"http://",
+    cor:"#abeafe"
+  }
+})
+  </script>
+  
+</body>
+</html>
