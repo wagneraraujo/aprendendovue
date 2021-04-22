@@ -10,6 +10,41 @@
 
 </head>
 <body>
+
+
+    <div id="api">
+
+      <li> {{arr}}  </li>
+      <button @click="consultarApi">buscar</button>
+
+    </div>
+
+    <script>
+        
+const vmapi = new Vue({
+  el: "#api",
+  data : {
+    arr: {},
+  },
+
+  methods: {
+    consultarApi(){
+      const apiUrl = "https://cloud.iexapis.com/v1"
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(json => {
+          this.arr = json
+            console.log(json)
+        })
+    }
+  }
+})
+
+    </script>
+
+
+
   <div id="app">
     {{total}}
 
