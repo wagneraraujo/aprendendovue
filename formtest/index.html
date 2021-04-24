@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v:bind</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+</head>
+<body>
+  
+  <div id="app">
+    <form>
+    <input type="text" name="nome" v-model="nome" required>
+    <input type="email" name="email" v-model="email" required>
+    <input type="number" name="telefone" v-model.number.trim="telefone" required>
+    <input @click.prevent="enviarForm" type="submit" value="enviar">
+    </form>
+
+    <div>
+
+<ul>
+  <li v-for="(valor, chave) in dadosForm">{{chave}} : {{valor}} </li>
+</ul>
+    </div>
+
+  </div>
+
+
+
+  <script>
+const vm = new Vue({
+  el:"#app",
+  data: {
+    nome : "",
+    email:"",
+    telefone:"",
+    dadosForm: {}
+  },
+  methods: {
+    enviarForm(){
+      this.dadosForm = {
+        nome: this.nome,
+        email: this.email,
+        telefone: this.telefone
+      }
+    }
+  }
+})
+  </script>
+  
+</body>
+</html>

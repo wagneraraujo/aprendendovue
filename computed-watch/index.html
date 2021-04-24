@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v:bind</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+</head>
+<body>
+
+
+  <!-- quando preciso mudar um dado usando js -->
+  <!-- separar um pouco metodos -->
+  <!-- ------------------------------------------------- -->
+  <!-- Watch  -> ativa uma funcao toda vez que um dado reativo e modificado -->
+  
+  <div id="app">
+
+    <div v-for="carro in carrosPreto">
+
+    {{carro.marca}}
+    </div>
+    <hr>
+    
+    <div v-for="tipo in marcaCarro">
+
+    {{tipo.marca}}
+    </div>
+
+  </div>
+
+
+
+  <script>
+const vm = new Vue({
+  el:"#app",
+  data: {
+    carros: [
+      {
+        marca: "bmw",
+        cor:"Preto",
+      },
+
+      {
+        marca: "Fiat",
+        cor:"Verde"
+      },
+      {
+        marca: "Tesla",
+        cor:"azul"
+      },
+    ]
+  },
+
+  computed: {
+    carrosPreto(){
+      return this.carros.filter(({cor}) => cor === "Preto")
+    },
+
+    marcaCarro(){
+      return this.carros.filter(({marca}) => marca === "Tesla")
+    }
+  }
+})
+  </script>
+  
+</body>
+</html>

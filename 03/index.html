@@ -17,9 +17,11 @@
   <div id="app">
 
     <p :class="cor" class="padrao">teste class</p>
-
-
     <div v-once>valor que só renderiza uma única vez e não muda o valor</div>
+    <div v-html="lista" v-once>renderizar um valor html que vem de algum lugar</div>
+    <ul>
+      <li v-for="produto in produtos" :key="">{{produto}}</li>
+    </ul>
 
   </div>
 
@@ -30,6 +32,8 @@ const vm = new Vue({
   el:"#app",
   data: {
     cor:"#abeafe",
+    lista:"<ul><li>lista 1</li></ul>",
+    produtos: ["mouse", "teclado", "monitor"]
   },
 })
   </script>
